@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/find_movie"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="34dp"
+        android:src="@drawable/find_movie" />
+
+    <ImageView
+        android:id="@+id/top_movie"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignTop="@+id/find_movie"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/find_movie"
+        android:src="@drawable/douban_top" />
+
+    <ImageView
+        android:id="@+id/top_guess"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignTop="@+id/top_movie"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/top_movie"
+        android:src="@drawable/douban_guess" />
+
+    <ImageView
+        android:id="@+id/top_filmlist"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignTop="@+id/top_guess"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="1dp"
+        android:layout_toEndOf="@+id/top_guess"
+        android:src="@drawable/douban_film_list" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/find_movie"
+        android:layout_alignStart="@+id/find_movie"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="4dp"
+        android:text="找电影"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/find_movie"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/textView1"
+        android:text="豆瓣榜单"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_guess"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:text="豆瓣猜"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_filmlist"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/textView3"
+        android:text="豆瓣片单"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="397dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="119dp"
+        android:src="@drawable/introduction" />
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoteEditFragment">
+
+
+    <ImageView
+        android:id="@+id/noteedit_backrows"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/backrows" />
+    <TextView
+        android:id="@+id/noteedit_title"
+        android:layout_toRightOf="@id/noteedit_backrows"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是标题"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:layout_width="370dp"
+        android:layout_height="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:background="#D8D8D8" />
+
+    <Button
+        android:id="@+id/noteedit_savebutton"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/edit_save_button"
+        android:text="立即保存"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/noteedit_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp" />
+
+</RelativeLayout>

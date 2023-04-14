@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.myapplication'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation("com.squareup.okhttp3:okhttp:4.2.0")
+    implementation("com.squareup.okio:okio:2.10.0")
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.7'
+    //引入第三方库glide
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-11'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-11'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+    implementation 'androidx.appcompat:appcompat:1.0.0'                 //必须 1.0.0 以上
+
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'    //经典刷新头
+    implementation  'io.github.scwang90:refresh-header-radar:2.0.5'       //雷达刷新头
+    implementation  'io.github.scwang90:refresh-header-falsify:2.0.5'     //虚拟刷新头
+    implementation  'io.github.scwang90:refresh-header-material:2.0.5'    //谷歌刷新头
+    implementation  'io.github.scwang90:refresh-header-two-level:2.0.5'   //二级刷新头
+    implementation  'io.github.scwang90:refresh-footer-ball:2.0.5'        //球脉冲加载
+    implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'    //经典加载
+
+}

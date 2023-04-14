@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MySpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_border</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:prompt">@string/my_spinner_text</item>
+    </style>
+</resources>

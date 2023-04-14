@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="800dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/middle_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="27dp"
+            android:src="@drawable/introduction2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middle_introduce"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="11dp"
+            android:text="豆瓣榜单"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/middle_card1"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_below="@+id/middle_introduce"
+
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="14dp"
+            android:layout_toStartOf="@+id/middle_card4"
+            android:src="@drawable/card1" />
+
+        <ImageView
+            android:id="@+id/middle_card4"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_below="@+id/middle_introduce"
+
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/card4" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middle_card1"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="15dp"
+            android:text="为你推荐"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/middle_card3"
+            android:layout_width="385dp"
+            android:layout_height="331dp"
+            android:layout_below="@+id/middle_introduce"
+
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="283dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/card3" />
+    </RelativeLayout>
+
+</ScrollView>
