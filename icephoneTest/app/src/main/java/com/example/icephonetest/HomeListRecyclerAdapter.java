@@ -14,15 +14,21 @@ import java.util.List;
 public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecyclerAdapter.ViewHolder> {
     private  Context context;
     private List<String> mDataList;// 声明数据列表
+    private recyclerItemTouchHelper listener;
 
-    public interface OnRecyclerItemClickListener {
-        void onRecyclerItemClick(int position);
+    public void removeData(int position) {
+        mDataList.remove(position);
+        notifyDataSetChanged();
     }
 
-    private static OnRecyclerItemClickListener listener;
+    public interface recyclerItemTouchHelper {
+        void onRecyclerItemClick(int position);
+
+    }
+
 
     // 构造函数，传入数据列表
-    public HomeListRecyclerAdapter(List<String> dataList, Context context, OnRecyclerItemClickListener listener) {
+    public HomeListRecyclerAdapter(List<String> dataList, Context context, recyclerItemTouchHelper listener) {
         mDataList = dataList;
         this.listener =listener;
         this.context = context;
@@ -52,13 +58,14 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
 
 
     // ViewHolder 类
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public  class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView textView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.textview);
             itemView.setOnClickListener(this);
+
         }
 
         // item 点击事件
@@ -72,4 +79,5 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
             }
         }
     }
+
 }

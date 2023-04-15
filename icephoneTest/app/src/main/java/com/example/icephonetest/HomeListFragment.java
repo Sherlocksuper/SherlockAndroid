@@ -1,10 +1,13 @@
 package com.example.icephonetest;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeListFragment extends Fragment implements HomeListRecyclerAdapter.OnRecyclerItemClickListener {
+public class HomeListFragment extends Fragment implements HomeListRecyclerAdapter.recyclerItemTouchHelper {
 
     public RecyclerView homeRecyclerview;
     public List<String> mDataList;
@@ -108,5 +111,34 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
+        @Override
+        public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+            int swipeFlags = ItemTouchHelper.LEFT;
+            return makeMovementFlags(0, swipeFlags);
+        }
+
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            //处理滑动删除事件
+            int position = viewHolder.getAdapterPosition();
+            homeListRecyclerAdapter.removeData(position);
+        }
+
+        @Override
+        public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+            //根据滑动的距离设置item的透明度
+            float alpha = 1 - Math.abs(dX) / viewHolder.itemView.getWidth();
+            viewHolder.itemView.setAlpha(alpha);
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
+    });
+
 
 }
