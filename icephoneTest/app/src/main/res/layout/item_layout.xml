@@ -48,6 +48,26 @@
         android:textSize="13dp" />
 
     <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="27dp"
+        android:src="@drawable/forwoardrow" />
+
+    <TextView
+        android:id="@+id/item_kind"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/item_background"
+        android:padding="3dp"
+        android:text="分类一"
+        android:textColor="@color/black"
+        android:textSize="12dp" />
 </RelativeLayout>
