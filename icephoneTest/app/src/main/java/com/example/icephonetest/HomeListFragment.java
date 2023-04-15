@@ -104,6 +104,32 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         homeListRecyclerAdapter = new HomeListRecyclerAdapter(mDataList, getContext(), this);
 
         homeRecyclerview.setAdapter(homeListRecyclerAdapter);
+
+        // 创建一个 ItemTouchHelper.Callback 对象
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            // 重写 onMove() 方法，返回 false 表示不支持拖动
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            // 重写 onSwiped() 方法，处理滑动删除的逻辑
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                // 获取滑动的位置
+                int position = viewHolder.getAdapterPosition();
+                // 从数据集中移除该项
+                mDataList.remove(position);
+                // 通知 Adapter 数据发生了变化
+                homeListRecyclerAdapter.notifyItemRemoved(position);
+            }
+
+
+                   };
+
+// 创建一个 ItemTouchHelper 对象，并将其附加到 RecyclerView 上
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
+        itemTouchHelper.attachToRecyclerView(homeRecyclerview);
     }
 
     //实现recyclerview的监听
