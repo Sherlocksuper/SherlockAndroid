@@ -1,12 +1,14 @@
 package com.example.icephonetest;
 
 import android.graphics.Canvas;
+import android.graphics.Point;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import com.yanzhenjie.recyclerview.SwipeRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +65,7 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         setupSpinner();
         //RecyclerView设置
         setupRecyclerView();
+        //itemTouchHelper
 
     }
 
@@ -85,6 +91,7 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         kindSpinner.setAdapter(adapter);
     }
+
     //设置recyclerview
     private void setupRecyclerView() {
         mDataList = new ArrayList<>();
@@ -95,6 +102,7 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         mDataList.add("1");
         homeRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         homeListRecyclerAdapter = new HomeListRecyclerAdapter(mDataList, getContext(), this);
+
         homeRecyclerview.setAdapter(homeListRecyclerAdapter);
     }
 
@@ -111,34 +119,5 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
-    ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
-        @Override
-        public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-            int swipeFlags = ItemTouchHelper.LEFT;
-            return makeMovementFlags(0, swipeFlags);
-        }
-
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            //处理滑动删除事件
-            int position = viewHolder.getAdapterPosition();
-            homeListRecyclerAdapter.removeData(position);
-        }
-
-        @Override
-        public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-            //根据滑动的距离设置item的透明度
-            float alpha = 1 - Math.abs(dX) / viewHolder.itemView.getWidth();
-            viewHolder.itemView.setAlpha(alpha);
-            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-        }
-    });
-
 
 }
