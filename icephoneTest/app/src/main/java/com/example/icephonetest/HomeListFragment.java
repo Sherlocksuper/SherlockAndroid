@@ -91,7 +91,6 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         kindSpinner.setAdapter(adapter);
     }
-
     //设置recyclerview
     private void setupRecyclerView() {
         mDataList = new ArrayList<>();
@@ -168,7 +167,6 @@ public class HomeListFragment extends Fragment implements HomeListRecyclerAdapte
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
         itemTouchHelper.attachToRecyclerView(homeRecyclerview);
     }
-
     //实现recyclerview的监听
     @Override
     public void onRecyclerItemClick(int position) {

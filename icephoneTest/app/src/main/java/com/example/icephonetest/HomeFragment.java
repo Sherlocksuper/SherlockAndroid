@@ -23,16 +23,7 @@ import java.util.List;
  * description：首页
  */
 public class HomeFragment extends Fragment {
-    String[] data = {"分类1", "分类2", "分类3", "全部"};
-    public Spinner spinner;
-    public Button testnoteDbutton;
     public View view;
-
-    public NoteDetailFragment noteDetailFragment;
-    private ViewPager viewPager;
-    private HomeVpAdapter adapter;
-
-    public List<Fragment> testList;
 
     @Nullable
     @Override

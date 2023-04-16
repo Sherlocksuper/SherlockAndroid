@@ -15,6 +15,5 @@ public class SearchFragment extends Fragment {
         // 使用inflater.inflate方法加载布局文件，并返回一个View对象
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         return view;
-
     }
 }
