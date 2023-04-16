@@ -20,10 +20,9 @@ import androidx.viewpager.widget.ViewPager;
 import java.util.List;
 
 public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecyclerAdapter.ViewHolder> {
-    private  Context context;
+    private Context context;
     private List<String> mDataList;// 声明数据列表
     private recyclerItemTouchHelper listener;
-
 
 
     public interface recyclerItemTouchHelper {
@@ -33,7 +32,7 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
     // 构造函数，传入数据列表
     public HomeListRecyclerAdapter(List<String> dataList, Context context, recyclerItemTouchHelper listener) {
         mDataList = dataList;
-        this.listener =listener;
+        this.listener = listener;
         this.context = context;
     }
 
@@ -42,7 +41,7 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, this);
     }
 
     // 绑定 ViewHolder
@@ -50,6 +49,16 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
     public void onBindViewHolder(ViewHolder holder, int position) {
         String data = mDataList.get(position);
         holder.textView.setText(data);
+
+        //给按钮设置删除监听器
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDataList.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
+            }
+        });
+
     }
 
     // 返回数据项数量
@@ -59,13 +68,16 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
     }
 
     // ViewHolder 类
-    public  class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView textView;
         public Button deleteButton;
-        public ViewHolder(View itemView) {
+        public RecyclerView.Adapter adapter;
+
+        public ViewHolder(View itemView, RecyclerView.Adapter adapter) {
             super(itemView);
             textView = itemView.findViewById(R.id.textview);
             deleteButton = itemView.findViewById(R.id.deleteItem);
+            this.adapter = adapter;
             itemView.setOnClickListener(this);
         }
 
@@ -80,5 +92,6 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
             }
         }
     }
+
 
 }
