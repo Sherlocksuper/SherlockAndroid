@@ -47,7 +47,6 @@ public class HomeFragment extends Fragment {
 
     }
 
-
     public void initHomeView() {
     }
 

@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,17 +24,12 @@ import java.util.List;
 public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecyclerAdapter.ViewHolder> {
     private Context context;
     private List<String> mDataList;// 声明数据列表
-    private recyclerItemTouchHelper listener;
-
-
-    public interface recyclerItemTouchHelper {
-        void onRecyclerItemClick(int position);
-    }
+    private FragmentManager fragmentManager;
 
     // 构造函数，传入数据列表
-    public HomeListRecyclerAdapter(List<String> dataList, Context context, recyclerItemTouchHelper listener) {
+    public HomeListRecyclerAdapter(List<String> dataList, Context context, FragmentManager manager) {
         mDataList = dataList;
-        this.listener = listener;
+        fragmentManager = manager;
         this.context = context;
     }
 
@@ -58,6 +55,16 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
                 notifyItemRemoved(holder.getAdapterPosition());
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NoteDetailFragment fragment = new NoteDetailFragment();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
 
     }
 
@@ -67,8 +74,9 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
         return mDataList.size();
     }
 
+
     // ViewHolder 类
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
         public Button deleteButton;
         public RecyclerView.Adapter adapter;
@@ -78,20 +86,9 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
             textView = itemView.findViewById(R.id.textview);
             deleteButton = itemView.findViewById(R.id.deleteItem);
             this.adapter = adapter;
-            itemView.setOnClickListener(this);
         }
-
         // item 点击事件
-        @Override
-        public void onClick(View v) {
-            if (listener != null) {
-                int position = getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    listener.onRecyclerItemClick(position);
-                }
-            }
-        }
+
+
     }
-
-
 }
