@@ -9,43 +9,43 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="45dp"
         android:text="注册"
-        android:textSize="30dp"
         android:textColor="@color/black"
-        android:layout_marginLeft="30dp"/>
+        android:textSize="30dp" />
 
 
     <EditText
-        android:id="@+id/number"
+        android:id="@+id/register_number"
         android:layout_width="370dp"
         android:layout_height="40dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="150dp"
+        android:background="@drawable/text_input_background"
         android:hint="请输入手机号码"
-        android:inputType="number"
-        android:background="@drawable/text_input_background"/>
+        android:inputType="number" />
 
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/register_password"
         android:layout_width="370dp"
         android:layout_height="40dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="220dp"
-        android:hint="请输入密码"
-        android:background="@drawable/text_input_background"/>
+        android:background="@drawable/text_input_background"
+        android:hint="请输入密码" />
 
     <TextView
-        android:id="@+id/geToLogin"
+        android:id="@+id/register_geToLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="320dp"
         android:layout_marginTop="280dp"
         android:clickable="true"
         android:text="返回登录"
-        android:textSize="20dp"
-        android:textColor="#0AA8EF"/>
+        android:textColor="#0AA8EF"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/register"
