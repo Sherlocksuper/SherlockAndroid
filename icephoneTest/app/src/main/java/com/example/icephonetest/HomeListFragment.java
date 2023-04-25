@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeListFragment extends Fragment  {
+public class HomeListFragment extends Fragment {
 
     public RecyclerView homeRecyclerview;
     public List<String> mDataList;
@@ -40,7 +40,7 @@ public class HomeListFragment extends Fragment  {
     public Spinner kindSpinner;
     public ImageButton addbutton;
     public View viewHL;
-   public FragmentManager manager;
+    public FragmentManager manager;
     FragmentTransaction transaction;
 
     @Override
@@ -93,6 +93,7 @@ public class HomeListFragment extends Fragment  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         kindSpinner.setAdapter(adapter);
     }
+
     //设置recyclerview
     private void setupRecyclerView() {
         mDataList = new ArrayList<>();

@@ -1,17 +1,23 @@
 package com.example.icephonetest;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,6 +30,8 @@ public class NoteEditFragment extends Fragment {
     public ImageView noteedit_backrow;
     public Button editsave_button;
 
+    public EditText titleEdit;
+    public EditText contentEdit;
     FragmentManager manager;
     FragmentTransaction transaction;
 
@@ -34,14 +42,19 @@ public class NoteEditFragment extends Fragment {
         initNoteEditView();
         initNoteEditData();
         initNoteEditListener();
+
         return view;
     }
+
 
 
     public void initNoteEditView() {
         noteedit_backrow = view.findViewById(R.id.noteedit_backrows);
         editsave_button = view.findViewById(R.id.noteedit_savebutton);
         itemSpinner = view.findViewById(R.id.noteedit_spinner);
+
+        titleEdit = view.findViewById(R.id.editNote_titleEdit);
+        contentEdit = view.findViewById(R.id.editNote_contentEdit);
     }
 
     public void initNoteEditData() {
@@ -67,8 +80,8 @@ public class NoteEditFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "成功添加", Toast.LENGTH_SHORT).show();
-                NoteDetailFragment noteDetailFragment = new NoteDetailFragment();
-                transaction.replace(R.id.fragment_container, noteDetailFragment);
+                HomeListFragment homeListFragment = new HomeListFragment();
+                transaction.replace(R.id.fragment_container, homeListFragment);
                 transaction.commit();
             }
         });
