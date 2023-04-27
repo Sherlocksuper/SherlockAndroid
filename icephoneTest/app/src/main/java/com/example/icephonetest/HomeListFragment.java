@@ -1,33 +1,48 @@
 package com.example.icephonetest;
 
 import android.animation.ValueAnimator;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
-import android.graphics.Point;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.SyncStateContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.yanzhenjie.recyclerview.SwipeRecyclerView;
+import com.google.gson.Gson;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import javax.xml.transform.Result;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 public class HomeListFragment extends Fragment {
@@ -42,6 +57,7 @@ public class HomeListFragment extends Fragment {
     public View viewHL;
     public FragmentManager manager;
     FragmentTransaction transaction;
+    ArrayAdapter<String> spinnerAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,13 +69,13 @@ public class HomeListFragment extends Fragment {
         return viewHL;
     }
 
-    public void initHomeListView() {
+    private void initHomeListView() {
         homeRecyclerview = viewHL.findViewById(R.id.homelist_recyclerview);
         addbutton = viewHL.findViewById(R.id.homelist_addbutton);
         kindSpinner = viewHL.findViewById(R.id.homelist_spinner);
     }
 
-    public void initHomeListData() {
+    private void initHomeListData() {
         //定义manager以及trasaction
         manager = getParentFragmentManager();
         transaction = manager.beginTransaction();
@@ -72,7 +88,7 @@ public class HomeListFragment extends Fragment {
 
     }
 
-    public void initHomeListListener() {
+    private void initHomeListListener() {
         addbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,10 +104,28 @@ public class HomeListFragment extends Fragment {
     private void setupSpinner() {
         //给下拉框设置适配器等
         spinnerList = new String[]{"select item", "item1", "item2", "item3"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item, spinnerList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        kindSpinner.setAdapter(adapter);
+        spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerList);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        kindSpinner.setAdapter(spinnerAdapter);
+
+        kindSpinner.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                final EditText inputServer = new EditText(getContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("请输入您要添加的分类名称").setView(inputServer)
+                        .setNegativeButton("取消", null);
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        String inputName = inputServer.getText().toString();
+                        addSpinnerList(inputName);
+
+                    }
+                });
+                builder.show();
+                return true;
+            }
+        });
     }
 
     //设置recyclerview
@@ -189,5 +223,35 @@ public class HomeListFragment extends Fragment {
         };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
         itemTouchHelper.attachToRecyclerView(homeRecyclerview);
+    }
+
+    private void addSpinnerList(String inputName) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+//                String url = "https://yapi.werun.top:8888/mock/476/Note/addLebal";
+//                OkHttpClient okHttpClient = new OkHttpClient();
+//                RequestBody formBody = new FormBody.Builder()
+//                        .add("groupName","")
+//                        .build();
+//                Request request = new Request.Builder()
+//                        .url(url)
+//                        .post(formBody)
+//                        .build();
+//
+//                okHttpClient.newCall(request).enqueue(new Callback() {
+//                    @Override
+//                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
+//                        Log.d("TAG", "run: "+"222222222222222222222222");
+//                        e.printStackTrace();
+//                    }
+//
+//                    @Override
+//                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+//                        Log.d("TAG", "run: "+response);
+//                    }
+//                });
+            }
+        }).start();
     }
 }
