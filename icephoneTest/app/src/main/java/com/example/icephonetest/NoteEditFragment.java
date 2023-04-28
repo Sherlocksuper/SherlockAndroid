@@ -56,6 +56,10 @@ public class NoteEditFragment extends Fragment {
     public List<String> spinnerList;
     public PublicResult publicResult;
 
+    public PublicResult oldResult;
+
+    public int notePosition;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -85,10 +89,14 @@ public class NoteEditFragment extends Fragment {
         transaction = manager.beginTransaction();
 
         Bundle args = getArguments();
-        if (args != null) publicResult = (PublicResult) args.getSerializable("public_result");
+        if (args != null) {
+            publicResult = (PublicResult) args.getSerializable("public_result");
+            notePosition = args.getInt("item_position");
+            Log.d("TAG", "initNoteEditData: "+notePosition);
+        }
+
         setItemSpinner();
         if (publicResult != null) initEditShow();
-
     }
 
     public void initNoteEditListener() {
@@ -111,9 +119,11 @@ public class NoteEditFragment extends Fragment {
                     Toast.makeText(getContext(), "输入不可为空", Toast.LENGTH_SHORT).show();
                 } else {
                     if (publicResult == null) {
+                        Log.d("TAG", "ontest: " + "addNewItem");
                         addNewItem();
                     } else {
                         updateNote();
+                        Log.d("TAG", "ontest: " + "updateItem");
                     }
                 }
             }
@@ -140,6 +150,7 @@ public class NoteEditFragment extends Fragment {
         itemSpinner.setSelection(spinnerList.indexOf(publicResult.kind));
     }
 
+    //添加新的
     public void addNewItem() {
         SimpleDateFormat formatter = new SimpleDateFormat("MM-dd"); // 定义格式化器
         Date date = new Date(); // 获取当前日期
@@ -152,6 +163,7 @@ public class NoteEditFragment extends Fragment {
         Gson gson = new Gson();
         Type type = new TypeToken<List<PublicResult>>() {
         }.getType();
+
         myDataList = gson.fromJson(json, type);
         if (myDataList == null) myDataList = new ArrayList<>();
         myDataList.add(addContent);
@@ -168,6 +180,8 @@ public class NoteEditFragment extends Fragment {
         transaction.commit();
     }
 
+
+    //更改旧的
     public void updateNote() {
         SimpleDateFormat formatter = new SimpleDateFormat("MM-dd"); // 定义格式化器
         Date date = new Date(); // 获取当前日期
@@ -182,7 +196,10 @@ public class NoteEditFragment extends Fragment {
         }.getType();
         myDataList = gson.fromJson(json, type);
         if (myDataList == null) myDataList = new ArrayList<>();
-        else Log.d("TAG", "updateNote: "+myDataList.contains(publicResult));;
+
+        else myDataList.set(notePosition,updateData);
+
+
         // 将List<PublicResult>转换为JSON字符串
         String jsonPut = gson.toJson(myDataList);
         // 将JSON字符串保存到SharedPreferences中

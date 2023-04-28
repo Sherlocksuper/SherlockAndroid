@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ public class NoteDetailFragment extends Fragment {
     public PublicResult publicResult;
     public TextView noteDetailTitle;
     public TextView noteDetailContent;
+
+    public int notePosition;
 
     @Nullable
     @Override
@@ -50,7 +53,10 @@ public class NoteDetailFragment extends Fragment {
         manager = getParentFragmentManager();
         transaction = manager.beginTransaction();
         Bundle args = getArguments();
-        if (args != null) publicResult = (PublicResult) args.getSerializable("public_result");
+        if (args != null) {
+            publicResult = (PublicResult) args.getSerializable("public_result");
+            notePosition = args.getInt("item_position");
+        }
     }
 
 
@@ -69,7 +75,8 @@ public class NoteDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle args = new Bundle();
-                args.putSerializable("public_result",publicResult);
+                args.putSerializable("public_result", publicResult);
+                args.putInt("item_position", notePosition);
 
                 NoteEditFragment noteEditFragment = new NoteEditFragment();
                 noteEditFragment.setArguments(args);
