@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailedCinemaThings">
+
+    <include
+        android:id="@+id/detailedCinemaTitle"
+        layout="@layout/titlebar_detailedcinema"></include>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailedCinemaTitle"
+        android:layout_marginTop="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <ImageView
+                android:id="@+id/detailed_picture"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/detailed_example_pic" />
+
+            <TextView
+                android:id="@+id/detailed_cinemaName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="19dp"
+                android:layout_toEndOf="@+id/detailed_picture"
+                android:text="电影名称"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/detailed_cinemaInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailed_cinemaName"
+                android:layout_alignStart="@+id/detailed_cinemaName"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="15dp"
+                android:text="电影详情" />
+
+
+            <Button
+                android:id="@+id/detailed_collectButton"
+                android:layout_width="227dp"
+                android:layout_height="47dp"
+                android:layout_below="@+id/detailed_cinemaInfo"
+                android:layout_alignStart="@+id/detailed_cinemaInfo"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="23dp"
+                android:background="@drawable/button_shape2"
+
+                android:drawableLeft="@drawable/shoucang_select"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="70dp"
+                android:text="收藏"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:id="@+id/detailed_cinemaGrade"
+                android:layout_width="500dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/detailed_collectButton"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/detailedcontent"
+                android:gravity="center_vertical"
+                android:paddingLeft="30dp"
+                android:text="评分"
+                android:textSize="40dp" />
+
+
+            <TextView
+                android:id="@+id/detailed_detailGrade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailed_collectButton"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="54dp"
+                android:layout_marginEnd="112dp"
+                android:text="详细评分细则"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/detailed_cinemaGrade"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="9dp"
+                android:text="豆瓣评分"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailed_cinemaGrade"
+                android:layout_marginTop="10dp"
+                android:text="选座购票"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <RelativeLayout
+                android:id="@+id/detailed_simpleContext"
+
+                android:layout_width="400dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/detailed_cinemaGrade"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/button_shape2"
+
+                >
+
+
+                <TextView
+                    android:id="@+id/detailed_simpleContext1"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="60dp"
+                    android:paddingRight="30dp"
+                    android:paddingBottom="10dp"
+                    android:text="简介部分文字介绍1111111111111111111111111111111111111111111
+                111111111111111111111111111111111111111111111111111"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/detailed_tvTelescopicTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/detailed_simpleContext1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="28dp"
+                    android:layout_marginRight="10dp"
+                    android:text="...展开" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailed_cinemaGrade"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="70dp"
+                android:text="简介"
+                android:textColor="@color/white"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/detailed_actorListTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailed_simpleContext"
+                android:layout_marginTop="10dp"
+                android:text="演职员"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <ImageView
+                android:id="@+id/detailed_actorPicture1"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/detailed_actorListTitle" />
+
+            <TextView
+                android:id="@+id/detailed_actorName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailed_actorPicture1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+
+                android:text="333" />
+
+            <ImageView
+                android:id="@+id/detailed_actorPicture2"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/detailed_actorListTitle"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/detailed_actorPicture1" />
+
+            <TextView
+                android:id="@+id/detailed_actorName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailed_actorPicture2"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="5dp"
+
+                android:text="333" />
+
+            <ImageView
+                android:id="@+id/detailed_actorPicture3"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/detailed_actorListTitle"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/detailed_actorPicture2" />
+
+            <TextView
+                android:id="@+id/detailed_actorName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailed_actorPicture3"
+                android:layout_marginLeft="270dp"
+                android:layout_marginTop="5dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/detailed_stageThings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailed_actorName1"
+                android:text="预告片/视频评论/剧照"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <ImageView
+                android:id="@+id/detailed_stagePicture1"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/detailed_stageThings"
+                android:layout_marginLeft="10dp"
+
+                android:layout_marginTop="10dp" />
+
+            <ImageView
+                android:id="@+id/detailed_stagePicture2"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/detailed_stageThings"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/detailed_stagePicture1" />
+
+            <ImageView
+                android:id="@+id/detailed_stagePicture3"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_below="@+id/detailed_stageThings"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/detailed_stagePicture2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commentRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailed_stagePicture1"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_shape2" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

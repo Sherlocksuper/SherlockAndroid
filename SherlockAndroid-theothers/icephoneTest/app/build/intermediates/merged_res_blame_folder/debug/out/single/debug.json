@@ -1,0 +1,222 @@
+[
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\xml_data_extraction_rules.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_activity_login.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_addbutton.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\addbutton.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_item_background.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\item_background.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_spinner_border.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\spinner_border.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_selected_my.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\selected_my.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_selected_search.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\selected_search.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_lines.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\lines.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_fragment_noteedit.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\fragment_noteedit.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-pngs-0:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\xml_backup_rules.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_myselected.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\myselected.png"
+    },
+    {
+        "merged": "com.example.icephonetest.app-merged_res-5:/layout_item_layout.xml.flat",
+        "source": "com.example.icephonetest.app-main-7:/layout/item_layout.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_spinner_selector_for_custome.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\spinner_selector_for_custome.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_myunselected.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\myunselected.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_activity_register.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_forwoardrow.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\forwoardrow.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_rounded_buttons.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\rounded_buttons.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_fragment_my.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\fragment_my.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_backrows.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\backrows.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_activity_main.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_fragment_search.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_item_layout.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\item_layout.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_edit_save_button.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\edit_save_button.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_shape_spinner.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\shape_spinner.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_pencilunselected.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\pencilunselected.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_fragment_home.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_selected_itemcolor.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\selected_itemcolor.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_text_input_background.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\text_input_background.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_searchselected.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\searchselected.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_circle_button.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\circle_button.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\menu_bottom_menu.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\menu\\bottom_menu.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_fragment_home_list.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\fragment_home_list.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_spinner_shape_for_custome.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\spinner_shape_for_custome.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_my_bottom.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\my_bottom.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\layout_fragment_notedetail.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\layout\\fragment_notedetail.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_searchnoselected.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\searchnoselected.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_pencilselected.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\pencilselected.png"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_searchview_shap.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\searchview_shap.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_calendar.png.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\calendar.png"
+    },
+    {
+        "merged": "com.example.icephonetest.app-merged_res-5:/layout_activity_login.xml.flat",
+        "source": "com.example.icephonetest.app-main-7:/layout/activity_login.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\drawable_selected_home.xml.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\drawable\\selected_home.xml"
+    },
+    {
+        "merged": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\code\\gradle\\gradle-7.6.1\\daemon\\7.4\\com.example.icephonetest.app-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
+    }
+]
