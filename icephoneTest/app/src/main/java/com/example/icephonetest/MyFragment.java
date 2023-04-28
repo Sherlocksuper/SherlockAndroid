@@ -25,17 +25,9 @@ public class MyFragment extends Fragment {
         return view;
     }
     public void initView(){
-        testToLogin = view.findViewById(R.id.myfragment_turnToLogin);
+
     }
 
     public void setOnClickListener(){
-        testToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //前往 LoginActivity进行测试
-                Intent intent = new Intent(getContext(),LoginActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }

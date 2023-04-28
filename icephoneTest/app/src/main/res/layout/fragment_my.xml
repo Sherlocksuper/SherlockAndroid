@@ -1,16 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/myfragment_turnToLogin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="To log" />
+        android:layout_height="200dp"
+        android:background="#C80000" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/my_mainpart"
+        android:layout_width="367dp"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="62dp"
+        android:background="@drawable/useful_shape" />
+
+    <TextView
+        android:id="@+id/custome_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="107dp"
+        android:text="飞翔的企鹅"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+
+    <TextView
+        android:id="@+id/my_secondpart"
+        android:layout_width="367dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/my_mainpart"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/useful_shape"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/my_secondpart"
+        android:layout_alignTop="@+id/my_secondpart"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="11dp"
+        android:text="分类管理"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/my_secondpart"
+        android:layout_alignTop="@+id/my_secondpart"
+        android:layout_marginStart="332dp"
+        android:layout_marginTop="-5dp"
+        android:text=">"
+        android:textSize="40dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:src="@drawable/settings" />
+
+</RelativeLayout>
