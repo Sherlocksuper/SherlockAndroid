@@ -17,7 +17,7 @@
             android:layout_height="match_parent" />
 
         <TextView
-            android:id="@+id/textview"
+            android:id="@+id/item_data"
             android:layout_width="50dp"
             android:layout_height="80dp"
             android:layout_alignParentStart="true"
@@ -29,7 +29,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginStart="0dp"
-            android:layout_toEndOf="@+id/textview"
+            android:layout_toEndOf="@+id/item_data"
             android:background="#9C9C9C" />
 
         <TextView
@@ -45,6 +45,7 @@
             android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/item_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/item_title"

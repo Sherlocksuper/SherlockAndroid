@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class NoteDetailFragment extends Fragment {
     public ImageView notedetail_backrow;
@@ -18,28 +19,42 @@ public class NoteDetailFragment extends Fragment {
     public View viewND;
     FragmentManager manager;
     FragmentTransaction transaction;
+    public PublicResult publicResult;
+    public TextView noteDetailTitle;
+    public TextView noteDetailContent;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewND = inflater.inflate(R.layout.fragment_notedetail, container, false);
-        initNoteDetailView();
         initNoteDetailData();
+        initNoteDetailView();
         initNoteDetailListener();
         return viewND;
     }
 
-    public void initNoteDetailView(){
+    public void initNoteDetailView() {
         notedetail_backrow = viewND.findViewById(R.id.notedetail_backrows);
         notedetail_editpen = viewND.findViewById(R.id.notedetail_penedit);
+
+        noteDetailTitle = viewND.findViewById(R.id.notedetails_title);
+        noteDetailContent = viewND.findViewById(R.id.notedetail_content);
+
+        if (publicResult != null) {
+            noteDetailTitle.setText(publicResult.title);
+            noteDetailContent.setText(publicResult.content);
+        }
     }
 
-    public void initNoteDetailData(){
+    public void initNoteDetailData() {
         manager = getParentFragmentManager();
         transaction = manager.beginTransaction();
+        Bundle args = getArguments();
+        if (args != null) publicResult = (PublicResult) args.getSerializable("public_result");
     }
 
 
-    public void  initNoteDetailListener(){
+    public void initNoteDetailListener() {
         notedetail_backrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,8 +68,14 @@ public class NoteDetailFragment extends Fragment {
         notedetail_editpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NoteEditFragment noteEditActivity = new NoteEditFragment();
-                transaction.replace(R.id.fragment_container, noteEditActivity);
+                Bundle args = new Bundle();
+                args.putSerializable("public_result",publicResult);
+
+                NoteEditFragment noteEditFragment = new NoteEditFragment();
+                noteEditFragment.setArguments(args);
+
+
+                transaction.replace(R.id.fragment_container, noteEditFragment);
                 transaction.commit();
             }
         });

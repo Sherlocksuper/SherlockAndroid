@@ -1,8 +1,12 @@
 package com.example.icephonetest;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.animation.ValueAnimator;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.os.Bundle;
 
@@ -25,13 +29,18 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.xml.transform.Result;
 
@@ -48,16 +57,19 @@ import okhttp3.Response;
 public class HomeListFragment extends Fragment {
 
     public RecyclerView homeRecyclerview;
-    public List<String> mDataList;
+    public List<PublicResult> mDataList;
     public HomeListRecyclerAdapter homeListRecyclerAdapter;
 
-    String[] spinnerList;
+    //String[] spinnerList;
     public Spinner kindSpinner;
     public ImageButton addbutton;
     public View viewHL;
     public FragmentManager manager;
     FragmentTransaction transaction;
     ArrayAdapter<String> spinnerAdapter;
+
+    List<String> spinnerList;
+    String[] spinnerItems;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,6 +85,7 @@ public class HomeListFragment extends Fragment {
         homeRecyclerview = viewHL.findViewById(R.id.homelist_recyclerview);
         addbutton = viewHL.findViewById(R.id.homelist_addbutton);
         kindSpinner = viewHL.findViewById(R.id.homelist_spinner);
+        spinnerList = new ArrayList<>();
     }
 
     private void initHomeListData() {
@@ -102,8 +115,12 @@ public class HomeListFragment extends Fragment {
 
     //设置下拉框
     private void setupSpinner() {
-        //给下拉框设置适配器等
-        spinnerList = new String[]{"select item", "item1", "item2", "item3"};
+
+
+        SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+        Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<String>()); // 读取Set数据
+        List<String> spinnerList = new ArrayList<String>(stringSet); // 将Set转换为List
+
         spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         kindSpinner.setAdapter(spinnerAdapter);
@@ -131,11 +148,19 @@ public class HomeListFragment extends Fragment {
     //设置recyclerview
     private void setupRecyclerView() {
         mDataList = new ArrayList<>();
-        mDataList.add("1");
-        mDataList.add("2");
-        mDataList.add("3");
-        mDataList.add("4");
-        mDataList.add("5");
+
+        // 从SharedPreferences中检索JSON字符串
+        SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+        String json = preferences.getString("publicResultList", "");
+
+        // 将JSON字符串转换回List<PublicResult>
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<PublicResult>>() {
+        }.getType();
+        mDataList = gson.fromJson(json, type);
+
+        if (mDataList == null) mDataList = new ArrayList<>();
+
         homeRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         homeListRecyclerAdapter = new HomeListRecyclerAdapter(mDataList, getContext(), manager);
 
@@ -226,32 +251,22 @@ public class HomeListFragment extends Fragment {
     }
 
     private void addSpinnerList(String inputName) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-//                String url = "https://yapi.werun.top:8888/mock/476/Note/addLebal";
-//                OkHttpClient okHttpClient = new OkHttpClient();
-//                RequestBody formBody = new FormBody.Builder()
-//                        .add("groupName","")
-//                        .build();
-//                Request request = new Request.Builder()
-//                        .url(url)
-//                        .post(formBody)
-//                        .build();
-//
-//                okHttpClient.newCall(request).enqueue(new Callback() {
-//                    @Override
-//                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
-//                        Log.d("TAG", "run: "+"222222222222222222222222");
-//                        e.printStackTrace();
-//                    }
-//
-//                    @Override
-//                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-//                        Log.d("TAG", "run: "+response);
-//                    }
-//                });
-            }
-        }).start();
+        SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+        Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<String>());
+
+        // 将Set转换为List
+        List<String> spinnerList = new ArrayList<String>(stringSet);
+
+        spinnerList.add(inputName);
+
+        stringSet = new HashSet<String>(spinnerList);
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putStringSet("spinnerList", stringSet); // 存储Set数据
+        editor.apply(); // 提交修改
+
+        spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerList);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        kindSpinner.setAdapter(spinnerAdapter);
     }
 }
