@@ -47,7 +47,6 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
         return new ViewHolder(view, this);
     }
-
     // 绑定 ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
