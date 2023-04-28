@@ -48,6 +48,7 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
         return new ViewHolder(view, this);
     }
     // 绑定 ViewHolder
+    //dosometest
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.itemDate.setText(mDataList.get(position).date);
