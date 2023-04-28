@@ -155,8 +155,7 @@ public class HomeListFragment extends Fragment {
 
         // 将JSON字符串转换回List<PublicResult>
         Gson gson = new Gson();
-        Type type = new TypeToken<List<PublicResult>>() {
-        }.getType();
+        Type type = new TypeToken<List<PublicResult>>() {}.getType();
         mDataList = gson.fromJson(json, type);
 
         if (mDataList == null) mDataList = new ArrayList<>();

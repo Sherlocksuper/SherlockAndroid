@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountsManageActivity">
+
+    <ImageView
+        android:id="@+id/accountsmanager_backRow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/backrows" />
+
+
+    <TextView
+        android:id="@+id/reset_resetPassword"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/item_kind_background"
+        android:gravity="center_vertical|start"
+        android:paddingLeft="20dp"
+        android:text="重设密码"
+        android:textColor="#333333"
+        android:textSize="20dp" />
+
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignEnd="@+id/reset_logout"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="149dp"
+        android:layout_marginEnd="26dp"
+        android:src="@drawable/forwoardrow" />
+
+    <TextView
+        android:id="@+id/reset_logout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/reset_resetPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/edit_save_button"
+        android:gravity="center_vertical|start"
+        android:paddingLeft="20dp"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignEnd="@+id/reset_resetPassword"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/forwoardrow" />
+
+</RelativeLayout>

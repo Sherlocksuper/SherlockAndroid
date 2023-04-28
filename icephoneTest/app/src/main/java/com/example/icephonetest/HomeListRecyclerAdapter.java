@@ -32,7 +32,6 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
     public SharedPreferences preferences;
     // 构造函数，传入数据列表
     public HomeListRecyclerAdapter(List<PublicResult> dataList, Context context, FragmentManager manager) {
-        Log.d("TAG", "HomeListRecyclerAdapter: " + dataList.size());
         mDataList = dataList;
         fragmentManager = manager;
         this.context = context;

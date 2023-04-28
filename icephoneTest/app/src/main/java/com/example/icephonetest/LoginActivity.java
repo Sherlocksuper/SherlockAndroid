@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class LoginActivity extends AppCompatActivity  {
+public class LoginActivity extends AppCompatActivity {
 
     Button login;
     EditText numberIn;
@@ -32,11 +32,11 @@ public class LoginActivity extends AppCompatActivity  {
 
         setTextListener();
         setLoginListener();
-}
+    }
 
-    public void setTextListener(){
+    public void setTextListener() {
         Intent toRegister = new Intent(this, RegisterActivity.class);
-        TextView textView=findViewById(R.id.item_data);
+        TextView textView = findViewById(R.id.item_data);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,20 +45,22 @@ public class LoginActivity extends AppCompatActivity  {
         });
     }
 
-//登录按钮监听
+    //登录按钮监听
     public void setLoginListener() {
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (inputLegal()) {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 } else if (inputLegal() == false) {
                     Toast.makeText(LoginActivity.this, "输入不合法", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-
 
 
     public boolean inputLegal() {
@@ -68,7 +70,6 @@ public class LoginActivity extends AppCompatActivity  {
         }
         return true;
     }
-
 
 
     public class LoginData {

@@ -10,12 +10,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MyFragment extends Fragment {
     public View view;
-    public TextView testToLogin;
+    public TextView tv_toManageKinds;
+
+    public ImageView iv_settings;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,10 +27,27 @@ public class MyFragment extends Fragment {
         setOnClickListener();
         return view;
     }
-    public void initView(){
 
+    public void initView() {
+        tv_toManageKinds = view.findViewById(R.id.my_toManageKinds);
+        iv_settings = view.findViewById(R.id.my_settings);
     }
 
-    public void setOnClickListener(){
+    public void setOnClickListener() {
+        tv_toManageKinds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ManagerKindsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        iv_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AccountsManageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

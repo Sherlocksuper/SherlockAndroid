@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="80dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="-5dp"
+    android:layout_marginRight="20dp"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/kinditem_roundbuttons">
+
+        <ImageButton
+            android:id="@+id/deleteItem"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:background="@drawable/kinditem_roundbuttons"
+            android:gravity="center"
+            android:padding="15dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/penwhite"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/kinditem_mainpart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_kind_background">
+
+            <TextView
+                android:id="@+id/item_kind_text"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:text="分类一"
+                android:textColor="#333333"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/forwoardrow" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
