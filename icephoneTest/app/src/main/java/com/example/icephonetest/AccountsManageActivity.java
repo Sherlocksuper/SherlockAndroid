@@ -12,8 +12,8 @@ public class AccountsManageActivity extends AppCompatActivity {
     ImageView backRows;
 
     public TextView resetPassword;
-    public TextView resetLogout
-            ;
+    public TextView resetLogout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class AccountsManageActivity extends AppCompatActivity {
         backRows = findViewById(R.id.accountsmanager_backRow);
 
         resetPassword = findViewById(R.id.reset_resetPassword);
-        resetLogout= findViewById(R.id.reset_logout);
+        resetLogout = findViewById(R.id.reset_logout);
     }
 
     public void initListener() {

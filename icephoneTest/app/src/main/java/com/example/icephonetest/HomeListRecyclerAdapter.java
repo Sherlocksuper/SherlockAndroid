@@ -21,18 +21,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.Serializable;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecyclerAdapter.ViewHolder> {
     private Context context;
-    private List<PublicResult> mDataList;// 声明数据列表
+    private List<PublicResult> mTotalDataList;// 声明数据列表
     private FragmentManager fragmentManager;
+
+    public List<PublicResult> mSelectedDataList;
     public SharedPreferences preferences;
+
     // 构造函数，传入数据列表
     public HomeListRecyclerAdapter(List<PublicResult> dataList, Context context, FragmentManager manager) {
-        mDataList = dataList;
+        mTotalDataList = dataList;
         fragmentManager = manager;
         this.context = context;
 
@@ -46,14 +49,15 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
         return new ViewHolder(view, this);
     }
+
     // 绑定 ViewHolder
     //dosometest
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.itemDate.setText(mDataList.get(position).date);
-        holder.itemTitle.setText(mDataList.get(position).title);
-        holder.itemContent.setText(mDataList.get(position).content);
-        holder.itemKind.setText(mDataList.get(position).kind);
+        holder.itemDate.setText(mTotalDataList.get(position).date);
+        holder.itemTitle.setText(mTotalDataList.get(position).title);
+        holder.itemContent.setText(mTotalDataList.get(position).content);
+        holder.itemKind.setText(mTotalDataList.get(position).kind);
         //给按钮设置删除监听器
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,20 +65,40 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
                 String json = preferences.getString("publicResultList", "");
                 // 将JSON字符串转换回List<PublicResult>
                 Gson gson = new Gson();
-                Type type = new TypeToken<List<PublicResult>>() {}.getType();
+                Type type = new TypeToken<List<PublicResult>>() {
+                }.getType();
+                String certainKind = holder.itemKind.getText().toString(); // 将此变量替换为您要删除的kind的值
+                int adapterPosition = holder.getAdapterPosition(); // 获取ViewHol
+                mTotalDataList = gson.fromJson(json, type);
 
-                mDataList = gson.fromJson(json, type);
-                mDataList.remove(holder.getAdapterPosition());
-                // 将List<PublicResult>转换为JSON字符串
-                String jsonPut = gson.toJson(mDataList);
-                // 将JSON字符串保存到SharedPreferences中
+                List<PublicResult> processDataList = new ArrayList<>(mTotalDataList);
+
+                mTotalDataList.clear();
+
+                //获得所有类名相同的
+                for (PublicResult publicResult : processDataList) {
+                    if (publicResult.kind.equals(certainKind)) {
+                        mTotalDataList.add(publicResult);
+                    }
+                }
+
+                //删除所有类名相同的
+                for (int i = 0; i < processDataList.size(); i++) {
+                    if (processDataList.get(i).kind.equals(certainKind)) {
+                        processDataList.remove(i);
+                        i--;
+                    }
+                }
+                //在所有kind相同的列表中删除选中的adapter
+                mTotalDataList.remove(adapterPosition);
+                notifyDataSetChanged();
+                processDataList.addAll(mTotalDataList);
+                String jsonPut = gson.toJson(processDataList);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("publicResultList", jsonPut);
                 editor.apply();
 
                 Toast.makeText(v.getContext(), "成功删除", Toast.LENGTH_SHORT).show();
-
-                notifyItemRemoved(holder.getAdapterPosition());
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +107,8 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
 
                 NoteDetailFragment fragment = new NoteDetailFragment();
                 Bundle args = new Bundle();
-                args.putSerializable("public_result", mDataList.get(holder.getAdapterPosition()));
-                args.putInt("item_position",holder.getAdapterPosition());
+                args.putSerializable("public_result", mTotalDataList.get(holder.getAdapterPosition()));
+                args.putInt("item_position", holder.getAdapterPosition());
 
                 fragment.setArguments(args);
 
@@ -100,8 +124,8 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
     // 返回数据项数量
     @Override
     public int getItemCount() {
-        if (!mDataList.isEmpty())
-            return mDataList.size();
+        if (!mTotalDataList.isEmpty())
+            return mTotalDataList.size();
         return 0;
     }
 

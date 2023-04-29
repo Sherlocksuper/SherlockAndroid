@@ -32,6 +32,7 @@ public class ManagerKindsActivity extends AppCompatActivity {
 
     public ManagesKindsRecyclerAdapter managesKindsRecyclerAdapter;
 
+
     public Button addButton;
     public List<String> kindsDatas;
 
@@ -54,7 +55,7 @@ public class ManagerKindsActivity extends AppCompatActivity {
     public void initData() {
         SharedPreferences preferences = this.getSharedPreferences("MyAppData", MODE_PRIVATE);
         Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<>());
-        //获取到了spinnerList的Adapter
+
         kindsDatas = new ArrayList<>(stringSet);
         setRecyclerView();
     }
@@ -78,7 +79,6 @@ public class ManagerKindsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         String inputName = inputServer.getText().toString();
                         addKinds(inputName);
-
                     }
                 });
                 builder.show();
