@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -30,7 +31,6 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
     private List<PublicResult> mTotalDataList;// 声明数据列表
     private FragmentManager fragmentManager;
 
-    public List<PublicResult> mSelectedDataList;
     public SharedPreferences preferences;
 
     // 构造函数，传入数据列表
@@ -113,6 +113,7 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
                 fragment.setArguments(args);
 
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
+
                 transaction.replace(R.id.fragment_container, fragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -154,4 +155,6 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
         }
         // item 点击事
     }
+
+
 }

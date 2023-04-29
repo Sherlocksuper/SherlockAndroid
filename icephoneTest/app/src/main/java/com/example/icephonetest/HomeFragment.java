@@ -53,4 +53,11 @@ public class HomeFragment extends Fragment {
     public void initHomeListener() {
     }
 
+    public void replaceListFragmentWithDetailFragment() {
+        NoteDetailFragment noteDetailFragment = new NoteDetailFragment();
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, noteDetailFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }

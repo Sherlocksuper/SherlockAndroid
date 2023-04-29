@@ -15,7 +15,7 @@
         android:background="@drawable/kinditem_roundbuttons">
 
         <ImageButton
-            android:id="@+id/deleteItem"
+            android:id="@+id/kind_deleteItem"
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:background="@drawable/kinditem_roundbuttons"

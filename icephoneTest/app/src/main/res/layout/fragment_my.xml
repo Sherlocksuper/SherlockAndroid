@@ -20,18 +20,15 @@
         android:layout_marginTop="62dp"
         android:background="@drawable/useful_shape" />
 
-    <TextView
-        android:id="@+id/custome_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <ImageView
+        android:layout_width="386dp"
+        android:layout_height="315dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="107dp"
-        android:text="飞翔的企鹅"
-        android:textColor="@color/black"
-        android:textSize="25dp" />
-
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="1dp"
+        android:src="@drawable/img" />
 
     <TextView
         android:id="@+id/my_toManageKinds"
@@ -65,7 +62,7 @@
         android:textSize="40dp" />
 
     <ImageView
-        android:id= "@+id/my_settings"
+        android:id="@+id/my_settings"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"

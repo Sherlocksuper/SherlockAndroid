@@ -37,7 +37,7 @@ import java.util.List;
  * description：首页
  */
 public class MainActivity extends AppCompatActivity {
-    String[] data = {"Apple", "Banana", "Cherry", "Durian"};
+
     public List<String> spinnerlist = new ArrayList<>();
 
     public Spinner spinner;
@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(3);
 
     }
-
 
 
     private void initMainListener() {
