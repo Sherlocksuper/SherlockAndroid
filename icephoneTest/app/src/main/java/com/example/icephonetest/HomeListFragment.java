@@ -99,7 +99,8 @@ public class HomeListFragment extends Fragment {
                 SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
                 String json = preferences.getString("publicResultList", "");
                 Gson gson = new Gson();
-                Type type = new TypeToken<List<PublicResult>>() {}.getType();
+                Type type = new TypeToken<List<PublicResult>>() {
+                }.getType();
                 mTotalDataList = gson.fromJson(json, type);
 
                 mShowDataList.clear();
@@ -114,7 +115,6 @@ public class HomeListFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
     }
@@ -123,6 +123,9 @@ public class HomeListFragment extends Fragment {
     private void setupSpinner() {
         SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
         Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<String>()); // 读取Set数据
+
+        if (stringSet == null) stringSet = new HashSet<>();
+
         List<String> spinnerList = new ArrayList<String>(stringSet); // 将Set转换为List
 
         spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, spinnerList);
@@ -139,6 +142,8 @@ public class HomeListFragment extends Fragment {
         Type type = new TypeToken<List<PublicResult>>() {
         }.getType();
         mTotalDataList = gson.fromJson(json, type);
+
+        if (mTotalDataList == null) mTotalDataList = new ArrayList<>();
 
         for (int i = 0; i < mTotalDataList.size(); i++) {
             if (Objects.equals(mTotalDataList.get(i).kind, kindSpinner.getSelectedItem().toString())) {
