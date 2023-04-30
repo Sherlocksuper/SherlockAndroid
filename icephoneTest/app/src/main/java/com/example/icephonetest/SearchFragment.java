@@ -35,7 +35,8 @@ import java.util.Objects;
 
 public class SearchFragment extends Fragment  {
 
-    public int a;
+
+    public  int b;
     public SearchView searchView;
     public View view;
     public RecyclerView resultRecyclerview;
