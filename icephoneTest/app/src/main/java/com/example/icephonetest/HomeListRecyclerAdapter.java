@@ -143,7 +143,6 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
 
 
         public ViewHolder(View itemView, RecyclerView.Adapter adapter) {
-
             super(itemView);
             itemDate = itemView.findViewById(R.id.item_data);
             itemTitle = itemView.findViewById(R.id.item_title);
@@ -152,9 +151,6 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
 
             deleteButton = itemView.findViewById(R.id.deleteItem);
             this.adapter = adapter;
-        }
-        // item 点击事
+        }// item 点击事
     }
-
-
 }

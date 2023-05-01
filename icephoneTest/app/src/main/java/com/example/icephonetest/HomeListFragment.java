@@ -40,6 +40,7 @@ import java.util.Set;
 
 public class HomeListFragment extends Fragment {
 
+
     public RecyclerView homeRecyclerview;
     public List<PublicResult> mTotalDataList;
     public List<PublicResult> mShowDataList;
@@ -91,7 +92,6 @@ public class HomeListFragment extends Fragment {
                 transaction.commit();
             }
         });
-
         kindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
