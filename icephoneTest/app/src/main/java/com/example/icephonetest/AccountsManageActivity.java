@@ -42,6 +42,7 @@ public class AccountsManageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AccountsManageActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finishAffinity();
             }
         });
 

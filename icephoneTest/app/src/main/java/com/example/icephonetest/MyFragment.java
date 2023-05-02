@@ -1,5 +1,6 @@
 package com.example.icephonetest;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -39,6 +40,7 @@ public class MyFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ManagerKindsActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 

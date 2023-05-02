@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -63,6 +64,8 @@ public class HomeListFragment extends Fragment {
         initHomeListData();
         initHomeListListener();
         return viewHL;
+
+
     }
 
     private void initHomeListView() {
@@ -96,12 +99,14 @@ public class HomeListFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+                SharedPreferences preferences = getContext().getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
                 String json = preferences.getString("publicResultList", "");
                 Gson gson = new Gson();
                 Type type = new TypeToken<List<PublicResult>>() {
                 }.getType();
                 mTotalDataList = gson.fromJson(json, type);
+
+                if (mTotalDataList == null) mTotalDataList = new ArrayList<>();
 
                 mShowDataList.clear();
                 for (int i = 0; i < mTotalDataList.size(); i++) {
@@ -121,8 +126,9 @@ public class HomeListFragment extends Fragment {
 
     //设置下拉框
     private void setupSpinner() {
-        SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
         Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<String>()); // 读取Set数据
+
 
         if (stringSet == null) stringSet = new HashSet<>();
 
@@ -136,7 +142,7 @@ public class HomeListFragment extends Fragment {
     //设置recyclerview
     private void setupRecyclerView() {
         // 从SharedPreferences中检索JSON字符串
-        SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
         String json = preferences.getString("publicResultList", "");
         Gson gson = new Gson();
         Type type = new TypeToken<List<PublicResult>>() {
@@ -146,6 +152,7 @@ public class HomeListFragment extends Fragment {
         if (mTotalDataList == null) mTotalDataList = new ArrayList<>();
 
         for (int i = 0; i < mTotalDataList.size(); i++) {
+            if (kindSpinner.getSelectedItem() == null) break;
             if (Objects.equals(mTotalDataList.get(i).kind, kindSpinner.getSelectedItem().toString())) {
                 mShowDataList.add(mTotalDataList.get(i));
             }
@@ -238,4 +245,5 @@ public class HomeListFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
         itemTouchHelper.attachToRecyclerView(homeRecyclerview);
     }
+
 }

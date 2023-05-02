@@ -2,13 +2,16 @@ package com.example.icephonetest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.animation.ValueAnimator;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.media.Ringtone;
@@ -53,7 +56,7 @@ public class ManagerKindsActivity extends AppCompatActivity {
     }
 
     public void initData() {
-        SharedPreferences preferences = this.getSharedPreferences("MyAppData", MODE_PRIVATE);
+        SharedPreferences preferences = this.getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
         Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<>());
 
         kindsDatas = new ArrayList<>(stringSet);
@@ -177,11 +180,13 @@ public class ManagerKindsActivity extends AppCompatActivity {
     }
 
     private void addKinds(String inputName) {
-        SharedPreferences preferences = this.getSharedPreferences("MyAppData", MODE_PRIVATE);
+        SharedPreferences preferences = this.getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
         Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<String>());
+        if (stringSet == null) stringSet = new HashSet<>();
         // 将Set转换为List
         kindsDatas = new ArrayList<String>(stringSet);
         kindsDatas.add(inputName);
+
         managesKindsRecyclerAdapter = new ManagesKindsRecyclerAdapter(kindsDatas);
 
         kindRecyclerView.setAdapter(managesKindsRecyclerAdapter);
@@ -189,5 +194,12 @@ public class ManagerKindsActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putStringSet("spinnerList", stringSet); // 存储Set数据
         editor.apply(); // 提交修改
+    }
+
+    @Override
+    public void finish() {
+        Intent intent = new Intent(ManagerKindsActivity.this, MainActivity.class);
+        startActivity(intent);
+        super.finish();
     }
 }

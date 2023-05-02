@@ -116,7 +116,7 @@ public class SearchFragment extends Fragment  {
     }
 
     public void doSearch(String targets) {
-        SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences(UsersCounts.usersCount, Context.MODE_PRIVATE);
         String json = preferences.getString("publicResultList", "");
         Gson gson = new Gson();
         Type type = new TypeToken<List<PublicResult>>() {

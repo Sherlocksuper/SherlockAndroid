@@ -68,7 +68,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (inputLegal()) {
-                    sendRequestWithOkHttp();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    setCounts();
+                    startActivity(intent);
+                    finish();
+//                  网络请求
+//                  Toast.makeText(LoginActivity.this, "正在登陆，请稍候", Toast.LENGTH_SHORT).show();
+//                  sendRequestWithOkHttp();
+
                 } else if (!inputLegal()) {
                     Toast.makeText(LoginActivity.this, "输入不合法", Toast.LENGTH_SHORT).show();
                 }
@@ -113,6 +120,9 @@ public class LoginActivity extends AppCompatActivity {
                         throw new IOException("Unexpected code:" + response);
                     }
                 } catch (IOException e) {
+                    Looper.prepare();
+                    Toast.makeText(LoginActivity.this, "网络请求失败，请检查网络设置", Toast.LENGTH_SHORT).show();
+                    Looper.loop();
                     e.printStackTrace();
                 }
             }
@@ -146,5 +156,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
+    private void setCounts() {
+        UsersCounts.usersCount = numberIn.getText().toString();
+    }
 }
 

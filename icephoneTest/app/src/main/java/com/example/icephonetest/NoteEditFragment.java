@@ -81,7 +81,7 @@ public class NoteEditFragment extends Fragment {
         contentEdit = view.findViewById(R.id.editNote_contentEdit);
         myDataList = new ArrayList<>();
 
-        preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+        preferences = getContext().getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
     }
 
     public void initNoteEditData() {
@@ -133,7 +133,7 @@ public class NoteEditFragment extends Fragment {
 
     public void setItemSpinner() {
 
-        SharedPreferences preferences = getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+        SharedPreferences preferences = getContext().getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
         Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<String>()); // 读取Set数据
         spinnerList = new ArrayList<String>(stringSet); // 将Set转换为List
 

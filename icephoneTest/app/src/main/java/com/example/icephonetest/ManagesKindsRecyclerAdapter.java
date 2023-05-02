@@ -41,7 +41,7 @@ public class ManagesKindsRecyclerAdapter extends RecyclerView.Adapter<ManagesKin
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = v.getContext().getSharedPreferences("MyAppData", MODE_PRIVATE);
+                SharedPreferences preferences = v.getContext().getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
                 Set<String> stringSet = preferences.getStringSet("spinnerList", new HashSet<String>());
                 // 将Set转换为List
                 List<String> kindsDatas = new ArrayList<String>(stringSet);

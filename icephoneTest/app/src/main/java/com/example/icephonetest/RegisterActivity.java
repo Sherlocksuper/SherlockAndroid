@@ -65,7 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (inputLegal()) {
-                    sendRequestWithOkHttp();
+                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(intent);
+
+//                  Toast.makeText(RegisterActivity.this, "正在注册，请稍后", Toast.LENGTH_SHORT).show();
+//                  sendRequestWithOkHttp();
+
+
                 } else {
                     Toast.makeText(RegisterActivity.this, "输入不合法", Toast.LENGTH_SHORT).show();
                 }
@@ -73,13 +79,10 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
-
-
     //判断输入是否为空
     public boolean inputLegal() {
         return !TextUtils.isEmpty(registerNumber.getText()) && !TextUtils.isEmpty(registerPassword.getText());
     }
-
     public void sendRequestWithOkHttp() {
         new Thread(new Runnable() {
             @Override
@@ -91,7 +94,6 @@ public class RegisterActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
                 MediaType type = MediaType.parse("application/json;charset=utf-8");
                 RequestBody requestBody = RequestBody.create(type, "" + jsonObject);
 
@@ -108,12 +110,14 @@ public class RegisterActivity extends AppCompatActivity {
                         throw new IOException("Unexpected code:" + response);
                     }
                 } catch (IOException e) {
+                    Looper.prepare();
+                    Toast.makeText(RegisterActivity.this, "网络请求失败，请检查网络设置", Toast.LENGTH_SHORT).show();
+                    Looper.loop();
                     e.printStackTrace();
                 }
             }
         }).start();
     }
-
     private final Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -131,6 +135,8 @@ public class RegisterActivity extends AppCompatActivity {
                     // 对其他情况进行处理
                 } else {
                     Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                     finish();
                 }
             } catch (JSONException e) {
@@ -138,6 +144,4 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     };
-
-
 }

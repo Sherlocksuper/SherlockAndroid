@@ -39,7 +39,7 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
         fragmentManager = manager;
         this.context = context;
 
-        preferences = context.getSharedPreferences("MyAppData", MODE_PRIVATE);
+        preferences = context.getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
     }
 
     // 创建 ViewHolder
