@@ -34,20 +34,20 @@ import java.util.Objects;
 
 
 public class SearchFragment extends Fragment  {
-
-
-    public  int b;
     public SearchView searchView;
+
     public View view;
     public RecyclerView resultRecyclerview;
-
     public HomeListRecyclerAdapter resultAdapter;
 
+    public HomeFragment homeFragment;
+    public FragmentManager manager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // 使用inflater.inflate方法加载布局文件，并返回一个View对象
         view = inflater.inflate(R.layout.fragment_search, container, false);
         initSearchView();
+        initSearchData();
         initListener();
         return view;
     }
@@ -61,7 +61,8 @@ public class SearchFragment extends Fragment  {
     }
 
     public void initSearchData() {
-
+        homeFragment = (HomeFragment) getParentFragmentManager().getFragments().get(0);
+        manager = homeFragment.getChildFragmentManager();
     }
 
     public void initListener() {
@@ -110,9 +111,14 @@ public class SearchFragment extends Fragment  {
                 ObjectAnimator animator = ObjectAnimator.ofFloat(searchView, "translationY", 0);
                 animator.setDuration(500);
                 animator.start();
+
+                resultAdapter = new HomeListRecyclerAdapter(new ArrayList<>(), getContext(), manager);
+                resultRecyclerview.setAdapter(resultAdapter);
+
                 return false;
             }
         });
+
     }
 
     public void doSearch(String targets) {
@@ -130,8 +136,7 @@ public class SearchFragment extends Fragment  {
 
         resultRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        HomeFragment homeFragment = (HomeFragment) getParentFragmentManager().getFragments().get(0);
-        FragmentManager manager = homeFragment.getChildFragmentManager();
+
 
         resultAdapter = new HomeListRecyclerAdapter(finalResult, getContext(), manager);
 

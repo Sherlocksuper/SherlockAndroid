@@ -2,6 +2,7 @@ package com.example.icephonetest;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -105,6 +106,7 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
             @Override
             public void onClick(View v) {
 
+
                 NoteDetailFragment fragment = new NoteDetailFragment();
                 Bundle args = new Bundle();
                 args.putSerializable("public_result", mTotalDataList.get(holder.getAdapterPosition()));
@@ -117,6 +119,13 @@ public class HomeListRecyclerAdapter extends RecyclerView.Adapter<HomeListRecycl
                 transaction.replace(R.id.fragment_container, fragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
+
+                Activity activity = fragmentManager.getFragments().get(0).getParentFragment().getActivity();
+
+                if (activity instanceof MainActivity) {
+                    Log.d("", "onClick: true");
+                    ((MainActivity) activity).bottomNavigationView.setSelectedItemId(R.id.tab_Main);
+                }
             }
         });
 

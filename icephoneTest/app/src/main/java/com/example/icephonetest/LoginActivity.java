@@ -1,11 +1,15 @@
 package com.example.icephonetest;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -80,14 +84,53 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        numberIn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (inputLegal()) {
+                    // 输入合法，将登录按钮的背景颜色设置为蓝色
+                    login.setBackgroundColor((Color.BLUE));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        passwordIn.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (inputLegal()) {
+                    // 输入合法，将登录按钮的背景颜色设置为蓝色
+                    login.setBackgroundColor((Color.BLUE));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     public boolean inputLegal() {
 
-        if (TextUtils.isEmpty(numberIn.getText()) || TextUtils.isEmpty(passwordIn.getText())) {
-            return false;
-        }
-        return true;
+        return !TextUtils.isEmpty(numberIn.getText()) && !TextUtils.isEmpty(passwordIn.getText());
     }
 
 
