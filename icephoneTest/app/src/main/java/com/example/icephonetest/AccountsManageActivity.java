@@ -3,6 +3,7 @@ package com.example.icephonetest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,6 +41,12 @@ public class AccountsManageActivity extends AppCompatActivity {
         resetLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SharedPreferences preferences = getSharedPreferences(UsersCounts.usersCount,MODE_PRIVATE);
+                SharedPreferences.Editor editor= preferences.edit();
+                editor.putBoolean("hasLogged",false);
+                editor.apply();
+
                 Intent intent = new Intent(AccountsManageActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finishAffinity();

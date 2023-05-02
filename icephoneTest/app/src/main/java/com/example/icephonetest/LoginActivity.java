@@ -1,6 +1,7 @@
 package com.example.icephonetest;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,8 +38,6 @@ public class LoginActivity extends AppCompatActivity {
     Button login;
     EditText numberIn;
     EditText passwordIn;
-    boolean success;
-    String token;
 
     public UsersCounts usersCounts;
 
@@ -49,9 +49,22 @@ public class LoginActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         numberIn = findViewById(R.id.numberIn);
         passwordIn = findViewById(R.id.passwordIn);
-
+        checkLogStatu();
         setTextListener();
         setLoginListener();
+    }
+
+    public void checkLogStatu() {
+        SharedPreferences preferences = this.getSharedPreferences("over", MODE_PRIVATE);
+        boolean hasLogged = preferences.getBoolean("hasLogged", false);
+        UsersCounts.usersCount = preferences.getString("counts",0+"");
+
+        Log.d("TAG", "checkLogStatu: "+hasLogged);
+        if (hasLogged) {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void setTextListener() {
@@ -76,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
                     setCounts();
                     startActivity(intent);
                     finish();
+
+
 //                  网络请求
 //                  Toast.makeText(LoginActivity.this, "正在登陆，请稍候", Toast.LENGTH_SHORT).show();
 //                  sendRequestWithOkHttp();
@@ -117,6 +132,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (inputLegal()) {
                     // 输入合法，将登录按钮的背景颜色设置为蓝色
                     login.setBackgroundColor((Color.BLUE));
+                } else {
+                    login.setBackgroundColor((Color.GRAY));
                 }
             }
 
@@ -174,26 +191,38 @@ public class LoginActivity extends AppCompatActivity {
     private final Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
-            String result = (String) msg.obj; // 获取返回的信息
-            try {
-                JSONObject jsonObject = new JSONObject(result);
-                int code = jsonObject.getInt("code");
-                if (code == 600) {
-                    String errorMsg = jsonObject.getString("message");
-                    Toast.makeText(LoginActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
-                    // 对其他情况进行处理
-                } else {
-                    Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+            if (msg.what == 1) {
+                String result = (String) msg.obj; // 获取返回的信息
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    int code = jsonObject.getInt("code");
+                    Log.d("TAG ", "handleMessage: " + code);
+                    if (code == 600) {
+                        String errorMsg = jsonObject.getString("message");
+                        Toast.makeText(LoginActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
+                        // 对其他情况进行处理
+                    } else if (code == 400) {
+                        String errorMsg = jsonObject.getString("message");
+                        Toast.makeText(LoginActivity.this, errorMsg, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
 
-                    UsersCounts.usersCount = numberIn.getText().toString();
-                    UsersCounts.usersPassword = passwordIn.getText().toString();
+                        UsersCounts.usersCount = numberIn.getText().toString();
+                        UsersCounts.usersPassword = passwordIn.getText().toString();
 
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                        SharedPreferences preferences = getSharedPreferences("over", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean("hasLogged", true);
+                        editor.putString("counts",UsersCounts.usersCount);
+                        editor.apply();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     };

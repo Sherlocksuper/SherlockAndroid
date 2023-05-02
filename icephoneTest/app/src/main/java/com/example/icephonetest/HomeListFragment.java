@@ -102,8 +102,7 @@ public class HomeListFragment extends Fragment {
                 SharedPreferences preferences = getContext().getSharedPreferences(UsersCounts.usersCount, MODE_PRIVATE);
                 String json = preferences.getString("publicResultList", "");
                 Gson gson = new Gson();
-                Type type = new TypeToken<List<PublicResult>>() {
-                }.getType();
+                Type type = new TypeToken<List<PublicResult>>() {}.getType();
                 mTotalDataList = gson.fromJson(json, type);
 
                 if (mTotalDataList == null) mTotalDataList = new ArrayList<>();

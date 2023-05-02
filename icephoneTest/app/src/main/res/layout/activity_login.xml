@@ -24,6 +24,7 @@
         android:layout_marginTop="150dp"
         android:hint=" 请输入手机号码"
         android:inputType="number"
+        android:lines="1"
         android:background="@drawable/text_input_background"/>
 
 

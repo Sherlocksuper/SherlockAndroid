@@ -110,6 +110,8 @@ public class RegisterActivity extends AppCompatActivity {
                 if (inputLegal()) {
                     // 输入合法，将登录按钮的背景颜色设置为蓝色
                     registerButton.setBackgroundColor((Color.BLUE));
+                }else{
+                    registerButton.setBackgroundColor((Color.GRAY));
                 }
             }
 
