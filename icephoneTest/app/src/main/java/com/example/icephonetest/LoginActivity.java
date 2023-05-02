@@ -75,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
 //                  网络请求
 //                  Toast.makeText(LoginActivity.this, "正在登陆，请稍候", Toast.LENGTH_SHORT).show();
 //                  sendRequestWithOkHttp();
-
                 } else if (!inputLegal()) {
                     Toast.makeText(LoginActivity.this, "输入不合法", Toast.LENGTH_SHORT).show();
                 }
